@@ -1,0 +1,20 @@
+:host {
+  width: 80vw;
+  margin: 10vh 10vw;
+  display: flex;
+  flex-direction: column;
+  font-face: system-ui;
+}
+
+/* button[type='button'],
+button[type='submit'],
+button[type='reset'] {
+  background-color: #04aa6d;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100%;
+} */

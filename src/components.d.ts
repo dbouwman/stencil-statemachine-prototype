@@ -5,57 +5,103 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ISession } from "./utils/ISession";
+import { ISession as ISession1 } from "./components";
+export { ISession } from "./utils/ISession";
+export { ISession as ISession1 } from "./components";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface BreathSession {
+        "session": ISession;
+    }
+    interface PranaApp {
+    }
+    interface SessionConfig {
+        "config": ISession1;
     }
 }
+export interface BreathSessionCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLBreathSessionElement;
+}
+export interface SessionConfigCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLSessionConfigElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLBreathSessionElementEventMap {
+        "sessionCancel": ISession;
+        "sessionComplete": ISession;
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    interface HTMLBreathSessionElement extends Components.BreathSession, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLBreathSessionElementEventMap>(type: K, listener: (this: HTMLBreathSessionElement, ev: BreathSessionCustomEvent<HTMLBreathSessionElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLBreathSessionElementEventMap>(type: K, listener: (this: HTMLBreathSessionElement, ev: BreathSessionCustomEvent<HTMLBreathSessionElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLBreathSessionElement: {
+        prototype: HTMLBreathSessionElement;
+        new (): HTMLBreathSessionElement;
+    };
+    interface HTMLPranaAppElement extends Components.PranaApp, HTMLStencilElement {
+    }
+    var HTMLPranaAppElement: {
+        prototype: HTMLPranaAppElement;
+        new (): HTMLPranaAppElement;
+    };
+    interface HTMLSessionConfigElementEventMap {
+        "configCancel": void;
+        "sessionStart": ISession1;
+    }
+    interface HTMLSessionConfigElement extends Components.SessionConfig, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLSessionConfigElementEventMap>(type: K, listener: (this: HTMLSessionConfigElement, ev: SessionConfigCustomEvent<HTMLSessionConfigElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLSessionConfigElementEventMap>(type: K, listener: (this: HTMLSessionConfigElement, ev: SessionConfigCustomEvent<HTMLSessionConfigElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLSessionConfigElement: {
+        prototype: HTMLSessionConfigElement;
+        new (): HTMLSessionConfigElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "breath-session": HTMLBreathSessionElement;
+        "prana-app": HTMLPranaAppElement;
+        "session-config": HTMLSessionConfigElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface BreathSession {
+        "onSessionCancel"?: (event: BreathSessionCustomEvent<ISession>) => void;
+        "onSessionComplete"?: (event: BreathSessionCustomEvent<ISession>) => void;
+        "session"?: ISession;
+    }
+    interface PranaApp {
+    }
+    interface SessionConfig {
+        "config"?: ISession1;
+        "onConfigCancel"?: (event: SessionConfigCustomEvent<void>) => void;
+        "onSessionStart"?: (event: SessionConfigCustomEvent<ISession1>) => void;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "breath-session": BreathSession;
+        "prana-app": PranaApp;
+        "session-config": SessionConfig;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "breath-session": LocalJSX.BreathSession & JSXBase.HTMLAttributes<HTMLBreathSessionElement>;
+            "prana-app": LocalJSX.PranaApp & JSXBase.HTMLAttributes<HTMLPranaAppElement>;
+            "session-config": LocalJSX.SessionConfig & JSXBase.HTMLAttributes<HTMLSessionConfigElement>;
         }
     }
 }
